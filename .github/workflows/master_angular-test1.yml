@@ -51,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'angular-test1'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F69719A9BC3A4F4F8B6CEB5FB7B6952B }}
-          package: .
+          publish-profile: $
+          package: ./dist/test-angular
