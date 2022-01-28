@@ -12,15 +12,6 @@ pool:
 
 steps:
 
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure subscription 1(2c9eab2c-9c19-468a-8ff1-f627adbe9170)'
-    appType: 'webApp'
-    WebAppName: 'angular-web-app'
-    packageForLinux: 'dist/'
-    
 - task: NodeTool@0
   inputs:
     versionSpec: '12.x'
@@ -31,3 +22,14 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(2c9eab2c-9c19-468a-8ff1-f627adbe9170)'
+    appType: 'webApp'
+    WebAppName: 'angular-web-app'
+    packageForLinux: 'dist/'
+    
+
+- task: PublishBuildArtifacts@1
